@@ -4,39 +4,40 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
 .taskbar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background-color: rgba(51, 51, 51, 0.9);
-    color: white;
-    padding: 0 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: rgba(51, 51, 51, 0.9);
+  color: white;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
 
-
-    .taskbar-icons {
-
-        img{
-            width: 25px;
-        }
-        img:focus {
-            transform: scale(1.1);
-        }
+  .taskbar-icons {
+    padding: 6px;
+    border-radius: 6px;
+    transition: 0.2s;
+    img {
+      width: 25px;
     }
-}
-.taskbar-icons {
-  padding: 6px;
-  border-radius: 6px;
-  transition: 0.2s;
+    img:focus {
+      transform: scale(1.1);
+    }
+    img:active {
+      transition: transform 0.2s;
+      transform: scale(0.7);
+    }
+  }
 }
 
 .taskbar-icons:hover {

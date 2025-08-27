@@ -9,24 +9,21 @@ const Taskbar = ({ openWindows, setOpenWindows }) => {
     const existing = openWindows.find((win) => win.name === name);
 
     if (existing) {
-      // Bring it to focus instead of reopening
       setOpenWindows((prev) =>
         prev.map((win) =>
           win.name === name
-            ? { ...win, minimized: false } // un-minimize if minimized
+            ? { ...win, minimized: false } 
             : win
         )
       );
     } else {
-      // Open a new window
-      const newWindow = { id: nanoid(), name, src, minimized: false };
+      const newWindow = { id: nanoid(), name, src, minimized: false, maximized: false };
       setOpenWindows([...openWindows, newWindow]);
     }
   };
 
-  // Helper: check if app is open
   const isActive = (name) =>
-    openWindows.some((win) => win.name === name && !win.minimized);
+    openWindows.some((win) => win.name === name);
 
   return (
     <div className="taskbar">

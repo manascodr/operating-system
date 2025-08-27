@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -23,17 +24,20 @@ html, body {
   align-items: center;
   gap: 1.2rem;
 }
+.taskbar .taskbar-icons {
+  padding: 6px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
 .taskbar .taskbar-icons img {
   width: 25px;
 }
 .taskbar .taskbar-icons img:focus {
   transform: scale(1.1);
 }
-
-.taskbar-icons {
-  padding: 6px;
-  border-radius: 6px;
-  transition: 0.2s;
+.taskbar .taskbar-icons img:active {
+  transition: transform 0.2s;
+  transform: scale(0.7);
 }
 
 .taskbar-icons:hover {

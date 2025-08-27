@@ -12,6 +12,7 @@ const Desktop = ({ openWindows, setOpenWindows }) => {
 
   return (
       <div className="desktop">   
+      
           <div className="desktop-icons">
             <div className="thisPC" name="thispc" onClick={() => handleOpenWindow('This Pc','/assets/icons/win/thispc.png')}>
               <img src="/assets/icons/win/thispc.png" name="thispc" alt="My Computer" />
