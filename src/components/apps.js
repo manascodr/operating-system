@@ -16,4 +16,4 @@ const apps = {
     img: "/assets/icons/settings.png"
   }
 };
-export default apps;
+export default apps; 

@@ -3,7 +3,7 @@ import "../utils/css/Taskbar.css";
 import "../index.css";
 import { nanoid } from "nanoid";
 
-const Taskbar = ({ openWindows, setOpenWindows }) => {
+const Taskbar = ({ openWindows, setOpenWindows, startMenu, setStartMenu }) => {
   const handleOpenWindow = (name, src) => {
     // Check if it's already open
     const existing = openWindows.find((win) => win.name === name);
@@ -11,32 +11,35 @@ const Taskbar = ({ openWindows, setOpenWindows }) => {
     if (existing) {
       setOpenWindows((prev) =>
         prev.map((win) =>
-          win.name === name
-            ? { ...win, minimized: false } 
-            : win
+          win.name === name ? { ...win, minimized: !existing.minimized } : win
         )
       );
     } else {
-      const newWindow = { id: nanoid(), name, src, minimized: false, maximized: false };
+      const newWindow = {
+        id: nanoid(),
+        name,
+        src,
+        minimized: false,
+        maximized: false,
+      };
       setOpenWindows([...openWindows, newWindow]);
     }
   };
 
-  const isActive = (name) =>
-    openWindows.some((win) => win.name === name);
+  const isActive = (name) => openWindows.some((win) => win.name === name);
+
+  console.log(startMenu);
 
   return (
     <div className="taskbar">
-      <div className="taskbar-icons start">
+      <div className="taskbar-icons start" onClick={() => setStartMenu(!startMenu)}>
         <img src="/assets/icons/home.png" alt="Start" />
       </div>
 
-      <div className="taskbar-icons search">
-        <img src="/assets/icons/search-svg.svg" alt="Search" />
-      </div>
-
       <div
-        className={`taskbar-icons settings ${isActive("Settings") ? "active" : ""}`}
+        className={`taskbar-icons settings ${
+          isActive("Settings") ? "active" : ""
+        }`}
         onClick={() =>
           handleOpenWindow("Settings", "/assets/icons/settings.png")
         }
@@ -45,7 +48,9 @@ const Taskbar = ({ openWindows, setOpenWindows }) => {
       </div>
 
       <div
-        className={`taskbar-icons file-explorer ${isActive("File Explorer") ? "active" : ""}`}
+        className={`taskbar-icons file-explorer ${
+          isActive("File Explorer") ? "active" : ""
+        }`}
         onClick={() =>
           handleOpenWindow("File Explorer", "/assets/icons/explorer.png")
         }
@@ -54,7 +59,9 @@ const Taskbar = ({ openWindows, setOpenWindows }) => {
       </div>
 
       <div
-        className={`taskbar-icons edge ${isActive("Microsoft Edge") ? "active" : ""}`}
+        className={`taskbar-icons edge ${
+          isActive("Microsoft Edge") ? "active" : ""
+        }`}
         onClick={() =>
           handleOpenWindow("Microsoft Edge", "/assets/icons/edge.png")
         }
@@ -63,7 +70,9 @@ const Taskbar = ({ openWindows, setOpenWindows }) => {
       </div>
 
       <div
-        className={`taskbar-icons store ${isActive("Microsoft Store") ? "active" : ""}`}
+        className={`taskbar-icons store ${
+          isActive("Microsoft Store") ? "active" : ""
+        }`}
         onClick={() =>
           handleOpenWindow("Microsoft Store", "/assets/icons/store.png")
         }
@@ -72,7 +81,9 @@ const Taskbar = ({ openWindows, setOpenWindows }) => {
       </div>
 
       <div
-        className={`taskbar-icons spotify ${isActive("Spotify") ? "active" : ""}`}
+        className={`taskbar-icons spotify ${
+          isActive("Spotify") ? "active" : ""
+        }`}
         onClick={() => handleOpenWindow("Spotify", "/assets/icons/spotify.png")}
       >
         <img src="/assets/icons/spotify.png" alt="Spotify" />
