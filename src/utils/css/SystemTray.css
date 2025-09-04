@@ -1,0 +1,71 @@
+.system-options {
+  right: 2rem;
+  padding: 1.4rem;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 4rem;
+  background-color: #242424;
+}
+
+.so-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.so-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.heading {
+  white-space: nowrap;
+  font-size: 0.7rem;
+}
+.so-img {
+  padding: 1rem 2.5rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.so-img:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.so-img img {
+  width: 18px;
+  filter: brightness(0) invert(1);
+}
+
+.so-indicator {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+.indi-icon img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.indi-icon {
+  display: flex;
+  padding: 0.8rem;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.indi-icon input {
+  flex-grow: 1;
+}
+
+.indi-icon .volume-slider,
+.brightness-slider {
+  height: 0.2rem;
+}
+
+.indi-icon .volume-value,
+.brightness-value {
+  font-size: 0.9rem;
+}
