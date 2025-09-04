@@ -1,6 +1,7 @@
 import "../utils/css/Window.css";
 import Draggable from "react-draggable";
 import { useRef } from "react";
+import Camera from "./Camera";
 
 const Window = ({ win, openWindows, setOpenWindows }) => {
   const nodeRef = useRef(null); // 👈 create a ref
@@ -56,7 +57,9 @@ const Window = ({ win, openWindows, setOpenWindows }) => {
           </div>
         </div>
         <div className="window-content">
-          <p>Welcome to {win.name}!</p>
+          <div className="window-content">
+            {win.name === "Camera" ? <Camera /> : <p>Welcome to {win.name}!</p>}
+          </div>
         </div>
       </div>
     </Draggable>

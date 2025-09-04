@@ -33,7 +33,9 @@ const SystemTray = () => {
           <p className="heading">Battery Saver</p>
         </div>
         <div className="so-icon">
-          <div className="so-img">
+          <div className="so-img" onClick={() => {
+            document.body.classList.toggle('light');
+          }}>
             <img src="/assets/icons/ui/moon.png" />
           </div>
           <p className="heading">Theme</p>

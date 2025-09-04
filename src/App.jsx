@@ -8,13 +8,14 @@ import Start from "./components/Start";
 function App() {
   const [openWindows, setOpenWindows] = useState([]); // ✅ added state
   const [startMenu, setStartMenu] = useState(false);
+  const [theme, setTheme] = useState(false);
   console.log(openWindows);
 
   return (
     <>
       <main>
         <Desktop openWindows={openWindows} setOpenWindows={setOpenWindows} startMenu={startMenu} setStartMenu={setStartMenu} />
-        <Taskbar openWindows={openWindows} setOpenWindows={setOpenWindows} startMenu={startMenu} setStartMenu={setStartMenu} />
+        <Taskbar openWindows={openWindows} setOpenWindows={setOpenWindows} startMenu={startMenu} setStartMenu={setStartMenu} theme={theme} setTheme={setTheme}  />
         {startMenu && <Start />}
         {openWindows.map((win) => (
           <Window
