@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 import RightMenu from "./RightMenu";
 import { useState } from "react";
 
-const Desktop = ({ openWindows, setOpenWindows, startMenu, setStartMenu }) => {
+const Desktop = ({ openWindows, setOpenWindows, startMenu, setStartMenu, systemTray, setSystemTray }) => {
   const [rightMenu, setRightMenu] = useState({ visibility: false, x: 0, y: 0 });
 
   const handleOpenWindow = (name, src) => {
@@ -15,6 +15,7 @@ const Desktop = ({ openWindows, setOpenWindows, startMenu, setStartMenu }) => {
   const handleDesktopClick = () => {
     setStartMenu(false);
     setRightMenu({ visibility: false, x: 0, y: 0 });
+    setSystemTray(false);
   };
 
   const handleRightClick = (e) => {

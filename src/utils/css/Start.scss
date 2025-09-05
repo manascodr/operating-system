@@ -17,12 +17,13 @@ body {
   transform: translateX(-50%);
   height: 45rem;
   width: 40rem;
-  background-color: #2b2b2b;
+  background-color: var(--bg-lighter);
   border: 1px solid #494646;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: var(--text-color);
 }
 .start-menu-cont {
   padding: 2rem 1rem;
@@ -34,7 +35,7 @@ body {
   .search {
     display: flex;
     align-items: center;
-    background-color: #1d1d1d;
+    background-color: var(--bg-element);
     border-radius: 1rem;
     padding: 0.4rem 1rem;
     border: 1px solid #494646;
@@ -42,7 +43,7 @@ body {
     input {
       background: transparent;
       border: none;
-      color: white;
+      color: var(--text-color);
       outline: none;
       padding: 0 0.5rem;
       width: 100%;
@@ -55,8 +56,8 @@ body {
 }
 
 .apps {
-  color: white;
-  padding: 2rem 2rem;
+  color: var(--text-color);
+  padding: 2rem 1.5rem;
 
   .title {
     display: flex;
@@ -64,12 +65,13 @@ body {
     margin-bottom: 0.5rem;
 
     .all {
-      background-color: #494646;
+      background-color: var(--bg-color);
       padding: 0.2rem 0.5rem;
       border-radius: 5px;
       display: flex;
       align-items: center;
       gap: 0.4rem;
+      color: var(--text-color);
 
       img {
         width: 8px;
@@ -109,7 +111,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
-  background-color: #232323;
+  background-color: var(--bg-darker);
 
   .user {
     display: flex;
@@ -130,7 +132,7 @@ body {
     }
 
     span {
-      color: white;
+      color: var(--text-color);
       font-weight: 500;
       font-size: 0.8rem;
     }

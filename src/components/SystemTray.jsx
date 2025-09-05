@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../utils/css/SystemTray.css";
 
-const SystemTray = () => {
-  const [brightness, setBrightness] = useState(100);
+const SystemTray = ({ theme, setTheme, brightness, setBrightness, systemTray, setSystemTray }) => {
   const [volume, setVolume] = useState(50);
 
   return (
@@ -33,10 +32,8 @@ const SystemTray = () => {
           <p className="heading">Battery Saver</p>
         </div>
         <div className="so-icon">
-          <div className="so-img" onClick={() => {
-            document.body.classList.toggle('light');
-          }}>
-            <img src="/assets/icons/ui/moon.png" />
+          <div className="so-img theme-btn" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+            <img src={theme === "light" ? "/assets/icons/ui/moon.png" : "/assets/icons/ui/sun.png"} />
           </div>
           <p className="heading">Theme</p>
         </div>

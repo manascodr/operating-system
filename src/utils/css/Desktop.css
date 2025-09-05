@@ -8,6 +8,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .desktop {
@@ -15,6 +16,7 @@ body {
   width: 100%;
   background-image: url("/assets/walls/light.jpg");
   background-size: 100%;
+  overflow: hidden;
 }
 
 .desktop-wallpaper {

@@ -4,7 +4,8 @@
   border-radius: 10px;
   position: absolute;
   bottom: 4rem;
-  background-color: #242424;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .so-container {
@@ -26,16 +27,16 @@
 .so-img {
   padding: 1rem 2.5rem;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--bg-element);
 }
 .so-img:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--icon-hover);
   cursor: pointer;
 }
 
 .so-img img {
   width: 18px;
-  filter: brightness(0) invert(1);
+  filter: var(--filter-icon);
 }
 
 .so-indicator {
@@ -46,7 +47,7 @@
 .indi-icon img {
   width: 20px;
   height: 20px;
-  filter: brightness(0) invert(1);
+  filter: var(--filter-icon);
 }
 
 .indi-icon {
@@ -68,4 +69,9 @@
 .indi-icon .volume-value,
 .brightness-value {
   font-size: 0.9rem;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: #0067c0;
 }

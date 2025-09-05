@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import "../utils/css/Taskbar.css";
 import "../index.css";
 import { nanoid } from "nanoid";
-import SystemTray from './SystemTray';
+import SystemTray from "./SystemTray";
 
-const Taskbar = ({ openWindows, setOpenWindows, startMenu, setStartMenu }) => {
-
-  const [systemTray, setSystemTray] = useState(false);
+const Taskbar = ({
+  openWindows,
+  setOpenWindows,
+  startMenu,
+  setStartMenu,
+  theme,
+  setTheme,
+  brightness,
+  setBrightness,
+  systemTray,
+  setSystemTray,
+}) => {
 
   const handleOpenWindow = (name, src) => {
     // Check if it's already open
@@ -31,8 +40,6 @@ const Taskbar = ({ openWindows, setOpenWindows, startMenu, setStartMenu }) => {
   };
 
   const isActive = (name) => openWindows.some((win) => win.name === name);
-
-  console.log(startMenu);
 
   return (
     <div className="taskbar">
@@ -103,20 +110,28 @@ const Taskbar = ({ openWindows, setOpenWindows, startMenu, setStartMenu }) => {
         </div>
       </div>
       <div className="right">
-        {systemTray && <SystemTray />}
+        {systemTray && (
+          <SystemTray
+            theme={theme}
+            setTheme={setTheme}
+            brightness={brightness}
+            setBrightness={setBrightness}
+            systemTray={systemTray}
+            setSystemTray={setSystemTray}
+          />
+        )}
         <div className="hidden-icons">
           <img src="/assets/icons/uparrow.svg" alt="Show hidden icons" />
         </div>
         <div className="quick-menu" onClick={() => setSystemTray(!systemTray)}>
           <div className="quick-icons">
-          <img src="/assets/icons/ui/wifi.png" alt="Volume" />
-            
+            <img src="/assets/icons/ui/wifi.png" alt="Volume" />
           </div>
           <div className="quick-icons">
-          <img src="/assets/icons/ui/audio2.png" alt="Audio" />
+            <img src="/assets/icons/ui/audio2.png" alt="Audio" />
           </div>
           <div className="quick-icons">
-          <img src="/assets/icons/ui/battery.png" alt="Battery" />
+            <img src="/assets/icons/ui/battery.png" alt="Battery" />
           </div>
         </div>
         <div className="time-date">
