@@ -37,7 +37,7 @@ const Camera = () => {
           maxWidth: "100%",
           maxHeight: "100%",
           borderRadius: "8px",
-          objectFit: "cover", // keeps it inside container
+          objectFit: "cover",
         }}
       />
     </div>
