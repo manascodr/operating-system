@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -21,6 +22,8 @@ main {
 
 .theme.light {
   --bg-color: #e6edf8;
+  --bg-lighter: #e6edf8;
+  --bg-darker: #d1d9e6;
   --text-color: #000000;
   --filter-icon: brightness(0) invert(0);
   --bg-element: rgba(0, 0, 0, 0.08);
@@ -39,10 +42,12 @@ main {
   --bg-element: rgba(255, 255, 255, 0.08);
   --icon-hover: rgba(255, 255, 255, 0.1);
   --taskbar-bg: rgba(51, 51, 51, 0.9);
-  --taskbar-icons-filter:invert(1);
+  --taskbar-icons-filter: invert(1);
 }
 
-body, .taskbar, .window {
+body,
+.taskbar,
+.window {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
