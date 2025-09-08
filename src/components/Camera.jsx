@@ -5,7 +5,6 @@ const Camera = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    // Ask for camera access
     navigator.mediaDevices
       .getUserMedia({ video: true })
       .then((stream) => {
@@ -19,12 +18,27 @@ const Camera = () => {
   }, []);
 
   return (
-    <div className="camera-app">
+    <div
+      className="camera-app"
+      style={{
+        width: "100%",
+        height: "100%",
+        overflow: "hidden", 
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <video
         ref={videoRef}
         autoPlay
         playsInline
-        style={{ width: "100%", borderRadius: "8px" }}
+        style={{
+          maxWidth: "100%",
+          maxHeight: "100%",
+          borderRadius: "8px",
+          objectFit: "cover", // keeps it inside container
+        }}
       />
     </div>
   );
