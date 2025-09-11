@@ -17,29 +17,42 @@ const Taskbar = ({
   setSystemTray,
 }) => {
 
-  const handleOpenWindow = (name, src) => {
-    // Check if it's already open
-    const existing = openWindows.find((win) => win.name === name);
+  const getAppState = (name) => {
+  const win = openWindows.find((w) => w.name === name);
+  if (!win) return "closed";
+  if (win.minimized) return "minimized";
+  return "active";
+};
+
+
+const handleOpenWindow = (name, src) => {
+  setOpenWindows((prev) => {
+    const existing = prev.find((win) => win.name === name);
 
     if (existing) {
-      setOpenWindows((prev) =>
-        prev.map((win) =>
-          win.name === name ? { ...win, minimized: !existing.minimized } : win
-        )
+      // toggle minimized instead of creating a new instance
+      return prev.map((win) =>
+        win.name === name ? { ...win, minimized: !win.minimized } : win
       );
-    } else {
-      const newWindow = {
-        id: nanoid(),
-        name,
-        src,
-        minimized: false,
-        maximized: false,
-      };
-      setOpenWindows([...openWindows, newWindow]);
     }
-  };
 
-  const isActive = (name) => openWindows.some((win) => win.name === name);
+    // create new window if not already open
+    const newWindow = {
+      id: nanoid(),
+      name,
+      src,
+      minimized: false,
+      maximized: false,
+      zIndex: prev.length + 1, // optional: manage stacking order
+    };
+
+    return [...prev, newWindow];
+  });
+};
+
+
+const isActive = (name) => openWindows.some((win) => win.name === name && !win.minimized);
+
 
   return (
     <div className="taskbar">
@@ -80,9 +93,7 @@ const Taskbar = ({
           className={`taskbar-icons edge ${
             isActive("Microsoft Edge") ? "active" : ""
           }`}
-          onClick={() =>
-            handleOpenWindow("Microsoft Edge", "/assets/icons/edge.png")
-          }
+
         >
           <img src="/assets/icons/edge.png" alt="Edge" />
         </div>
@@ -91,9 +102,6 @@ const Taskbar = ({
           className={`taskbar-icons store ${
             isActive("Microsoft Store") ? "active" : ""
           }`}
-          onClick={() =>
-            handleOpenWindow("Microsoft Store", "/assets/icons/store.png")
-          }
         >
           <img src="/assets/icons/store.png" alt="Store" />
         </div>
@@ -102,11 +110,18 @@ const Taskbar = ({
           className={`taskbar-icons spotify ${
             isActive("Spotify") ? "active" : ""
           }`}
-          onClick={() =>
-            handleOpenWindow("Spotify", "/assets/icons/spotify.png")
-          }
+
         >
           <img src="/assets/icons/spotify.png" alt="Spotify" />
+        </div>
+
+        <div
+          className={`taskbar-icons spotify ${
+            isActive("Spotify") ? "active" : ""
+          }`}
+
+        >
+          <img src="/assets/icons/github.png" alt="GitHub" />
         </div>
       </div>
       <div className="right">

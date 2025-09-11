@@ -9,13 +9,14 @@ body {
   height: 100%;
   width: 100%;
 }
+
 .taskbar {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 50px;
-  background-color: var(--bg-color);
+  background-color: var(--bg-taskbar);
   color: white;
   padding: 0 15px;
   display: flex;
