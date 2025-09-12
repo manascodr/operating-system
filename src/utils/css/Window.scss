@@ -41,7 +41,7 @@ body {
   background-color: var(--bg-color);
 
   .window-header {
-    background: var(--bg-color);
+    background: var(--bg-darker);
     padding: 0 0 0 0.5rem;
     // border-bottom: 1px solid #ccc;
     display: flex;
@@ -87,5 +87,7 @@ body {
   .window-content {
     padding: 1rem;
     height: calc(100% - 24.2px);
+    background-color: var(--bg-lighter);
+    color: var(--text-color);
   }
 }

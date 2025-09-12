@@ -3,67 +3,46 @@ import "../index.css";
 import { nanoid } from "nanoid";
 import RightMenu from "./RightMenu";
 import { useState } from "react";
+import apps from "../utils/apps"; // ✅ import centralized app definitions
 
-const Desktop = ({ openWindows, setOpenWindows, startMenu, setStartMenu, systemTray, setSystemTray }) => {
+const Desktop = ({ openWindows, setOpenWindows, startMenu, setStartMenu, systemTray, setSystemTray,handleOpenWindow }) => {
   const [rightMenu, setRightMenu] = useState({ visibility: false, x: 0, y: 0 });
-
-  const handleOpenWindow = (name, src) => {
-    const newWindow = { id: nanoid(), name, src };
-    setOpenWindows([...openWindows, newWindow]);
-  };
 
   const handleDesktopClick = () => {
     setStartMenu(false);
     setRightMenu({ visibility: false, x: 0, y: 0 });
     setSystemTray(false);
+    
   };
 
   const handleRightClick = (e) => {
     e.preventDefault();
     setRightMenu({ visibility: true, x: e.clientX, y: e.clientY });
   };
-  const handleOpenCamera = () => {
-    const newWindow = { id: nanoid(), name: "Camera", src: "/assets/icons/camera.png" };
-    setOpenWindows([...openWindows, newWindow]);
-  }
 
   return (
     <div
       className="desktop"
       onClick={handleDesktopClick}
-      onContextMenu={(e) => handleRightClick(e)}
+      onContextMenu={handleRightClick}
     >
       {rightMenu.visibility && <RightMenu x={rightMenu.x} y={rightMenu.y} />}
       <div className="desktop-icons">
-        <div
-          className="thisPC"
-          name="thispc"
-          onClick={() =>
-            handleOpenWindow("This Pc", "/assets/icons/win/thispc.png")
-          }
-        >
-          <img
-            src="/assets/icons/win/thispc.png"
-            name="thispc"
-            alt="My Computer"
-          />
-          <label htmlFor="thispc">This pc</label>
+        <div className="thisPC" onClick={() => handleOpenWindow("thisPC")}>
+          <img src={apps.thisPC.icon} alt="This PC" />
+          <label>This PC</label>
         </div>
-        <div
-          className="bin"
-          name="bin"
-          onClick={() =>
-            handleOpenWindow("Recycle Bin", "/assets/icons/win/bin.png")
-          }
-        >
-          <img src="/assets/icons/win/bin.png" name="bin" alt="Recycle Bin" />
-          <label htmlFor="bin">Recycle Bin</label>
+        <div className="bin" onClick={() => handleOpenWindow("recycleBin")}>
+          <img src={apps.recycleBin.icon} alt="Recycle Bin" />
+          <label>Recycle Bin</label>
         </div>
-        <div
-          className="taskbar-icons camera"
-          onClick={() => handleOpenWindow("Camera", "/assets/icons/camera.png")}
-        >
-          <img src="/assets/icons/camera.png" alt="Camera" />
+        <div className="camera" onClick={() => handleOpenWindow("camera")}>
+          <img src={apps.camera.icon} alt="Camera" />
+          <label>Camera</label>
+        </div>
+        <div className="notepad" onClick={() => handleOpenWindow("notepad")}>
+          <img src={apps.notepad.icon} alt="Notepad" />
+          <label>Notepad</label>
         </div>
       </div>
     </div>

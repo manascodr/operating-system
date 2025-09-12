@@ -90,7 +90,7 @@ body {
   border-radius: 5px;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--icon-hover);
   }
 
   .quick-icons {

@@ -20,10 +20,13 @@ main{
 
 .theme.light {
   --bg-color: #e6edf8;
+  --bg-lighter: #f9f9f9;
+  --bg-darker:#eff4f9;
   --text-color: #000000;
   --filter-icon:  brightness(0) invert(0);
   --bg-element: rgba(0, 0, 0, 0.08);
   --icon-hover: rgba(0, 0, 0, 0.1);
+  --bg-taskbar: rgba(255, 255, 255, 0.9);
 
   .theme-btn{
     background-color: #0067c0;
@@ -37,7 +40,7 @@ main{
   --filter-icon:  brightness(0) invert(1);
   --bg-element: rgba(255, 255, 255, 0.08);
   --icon-hover: rgba(255, 255, 255, 0.1);
-  --taskbar-bg: rgba(51, 51, 51, 0.9);
+  --bg-taskbar: rgba(51, 51, 51, 0.9);
   --taskbar-icons-filter:invert(1);
 
 }

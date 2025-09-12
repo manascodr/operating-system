@@ -3,6 +3,7 @@ import "../utils/css/Taskbar.css";
 import "../index.css";
 import { nanoid } from "nanoid";
 import SystemTray from "./SystemTray";
+import apps from "../utils/apps";
 
 const Taskbar = ({
   openWindows,
@@ -15,44 +16,17 @@ const Taskbar = ({
   setBrightness,
   systemTray,
   setSystemTray,
+  handleOpenWindow,
 }) => {
-
   const getAppState = (name) => {
-  const win = openWindows.find((w) => w.name === name);
-  if (!win) return "closed";
-  if (win.minimized) return "minimized";
-  return "active";
-};
+    const win = openWindows.find((w) => w.name === name);
+    if (!win) return "closed";
+    if (win.minimized) return "minimized";
+    return "active";
+  };
 
-
-const handleOpenWindow = (name, src) => {
-  setOpenWindows((prev) => {
-    const existing = prev.find((win) => win.name === name);
-
-    if (existing) {
-      // toggle minimized instead of creating a new instance
-      return prev.map((win) =>
-        win.name === name ? { ...win, minimized: !win.minimized } : win
-      );
-    }
-
-    // create new window if not already open
-    const newWindow = {
-      id: nanoid(),
-      name,
-      src,
-      minimized: false,
-      maximized: false,
-      zIndex: prev.length + 1, // optional: manage stacking order
-    };
-
-    return [...prev, newWindow];
-  });
-};
-
-
-const isActive = (name) => openWindows.some((win) => win.name === name && !win.minimized);
-
+  const isActive = (name) =>
+    openWindows.some((win) => win.name === name && !win.minimized);
 
   return (
     <div className="taskbar">
@@ -72,7 +46,7 @@ const isActive = (name) => openWindows.some((win) => win.name === name && !win.m
             isActive("Settings") ? "active" : ""
           }`}
           onClick={() =>
-            handleOpenWindow("Settings", "/assets/icons/settings.png")
+            handleOpenWindow("settings")
           }
         >
           <img src="/assets/icons/settings.png" alt="Settings" />
@@ -83,7 +57,7 @@ const isActive = (name) => openWindows.some((win) => win.name === name && !win.m
             isActive("File Explorer") ? "active" : ""
           }`}
           onClick={() =>
-            handleOpenWindow("File Explorer", "/assets/icons/explorer.png")
+            handleOpenWindow("explorer")
           }
         >
           <img src="/assets/icons/explorer.png" alt="File Explorer" />
@@ -93,7 +67,6 @@ const isActive = (name) => openWindows.some((win) => win.name === name && !win.m
           className={`taskbar-icons edge ${
             isActive("Microsoft Edge") ? "active" : ""
           }`}
-
         >
           <img src="/assets/icons/edge.png" alt="Edge" />
         </div>
@@ -110,7 +83,6 @@ const isActive = (name) => openWindows.some((win) => win.name === name && !win.m
           className={`taskbar-icons spotify ${
             isActive("Spotify") ? "active" : ""
           }`}
-
         >
           <img src="/assets/icons/spotify.png" alt="Spotify" />
         </div>
@@ -119,7 +91,6 @@ const isActive = (name) => openWindows.some((win) => win.name === name && !win.m
           className={`taskbar-icons spotify ${
             isActive("Spotify") ? "active" : ""
           }`}
-
         >
           <img src="/assets/icons/github.png" alt="GitHub" />
         </div>

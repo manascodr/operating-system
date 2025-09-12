@@ -94,7 +94,7 @@ body {
   border-radius: 5px;
 }
 .quick-menu:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--icon-hover);
 }
 .quick-menu .quick-icons {
   display: flex;

@@ -52,7 +52,7 @@ const Window = ({ win, openWindows, setOpenWindows }) => {
     >
       <div className="window-header">
         <div className="title">
-          <img src={win.src} alt="" />
+          <img src={win.icon} alt="" />
           <p>{win.name}</p>
         </div>
         <div className="window-controls">
@@ -69,7 +69,7 @@ const Window = ({ win, openWindows, setOpenWindows }) => {
       </div>
 
       <div className="window-content">
-        {win.name === "Camera" ? <Camera /> : <p>Welcome to {win.name}!</p>}
+        {win.component ? <win.component /> : <p>App not found</p>}
       </div>
     </Rnd>
   );
