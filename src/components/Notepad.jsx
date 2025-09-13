@@ -1,11 +1,18 @@
 
 import React from 'react'
+import './notepad/Notepad.css'
 
 const Notepad = () => {
-  return (
-    <div className='header' style={{padding:"1rem", fontSize:"1.2rem",backgroundColor:"red", color:"white", height:"100%",width:"100%"  }}>
-        Notepad
+  return (<>
+    <div className='notepad-header'>
+      <div>File</div>
+      <div>Edit</div>
+      <div>View</div>
     </div>
+    <div className='notepad-content'>
+      <textarea className='notepad-textarea' placeholder='Start typing...'></textarea>
+    </div>
+  </>
   )
 }
 

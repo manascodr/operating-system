@@ -44,6 +44,14 @@ const Desktop = ({ openWindows, setOpenWindows, startMenu, setStartMenu, systemT
           <img src={apps.notepad.icon} alt="Notepad" />
           <label>Notepad</label>
         </div>
+        <div className="photos" onClick={() => handleOpenWindow("photos")}>
+          <img src={apps.photos.icon} alt="Photos" />
+          <label>Photos</label>
+        </div>
+        <div className="edge" onClick={() => handleOpenWindow("edge")}>
+          <img src={apps.edge.icon} alt="Edge" />
+          <label>Edge</label>
+        </div>
       </div>
     </div>
   );

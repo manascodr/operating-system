@@ -80,7 +80,6 @@ body {
   border-top-right-radius: 6px;
 }
 .border-window .window-content {
-  padding: 1rem;
   height: calc(100% - 24.2px);
   background-color: var(--bg-lighter);
   color: var(--text-color);

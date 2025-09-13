@@ -1,6 +1,8 @@
 // src/utils/apps.js
 import Camera from "../components/Camera";
+import Edge from "../components/Edge";
 import Notepad from "../components/Notepad";
+import Photos from "../components/Photos";
 
 const apps = {
   settings: {
@@ -35,6 +37,18 @@ const apps = {
     name: "Notepad",
     icon: "/assets/icons/notepad.png",
     component: Notepad,
+  },
+  photos: {
+    id: "photos",
+    name: "Photos",
+    icon: "/assets/icons/photos.png",
+    component: Photos,
+  },
+  edge: {
+    id: "edge",
+    name: "Micriosoft Edge",
+    icon: "/assets/icons/edge.png",
+    component: Edge,
   },
 };
 

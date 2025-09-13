@@ -1,0 +1,86 @@
+/* src/components/edge.scss */
+.edge-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+.edge-app .edge-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.edge-app .edge-toolbar .nav-buttons {
+  display: flex;
+  gap: 4px;
+}
+.edge-app .edge-toolbar .nav-buttons button {
+  width: 36px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+.edge-app .edge-toolbar .nav-buttons button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.edge-app .edge-toolbar .address-bar {
+  flex: 1;
+  display: flex;
+}
+.edge-app .edge-toolbar .address-bar input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  outline: none;
+}
+.edge-app .edge-toolbar .address-bar input:focus {
+  box-shadow: 0 0 0 3px rgba(0, 120, 215, 0.12);
+  border-color: rgba(0, 120, 215, 0.6);
+}
+.edge-app .edge-toolbar .toolbar-right {
+  display: flex;
+  gap: 6px;
+}
+.edge-app .edge-toolbar .toolbar-right button {
+  width: 36px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.edge-app .edge-content {
+  position: relative;
+  flex: 1;
+  display: flex;
+  background: var(--bg-2);
+}
+.edge-app .edge-content iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: white;
+}
+.edge-app .edge-content .loading-indicator {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  z-index: 10;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 12px;
+}
